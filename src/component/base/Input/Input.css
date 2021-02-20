@@ -1,0 +1,22 @@
+label {
+    display: flex !important;
+    flex-direction: column;
+    margin: 50px 20px 0px 20px;
+}
+
+label span {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+label input {
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    padding: 20px;
+}
+
+label input:focus {
+    outline: none;
+}
