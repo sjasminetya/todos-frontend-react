@@ -1,0 +1,16 @@
+.todos-login {
+    background: #5C7CAD;
+    width: 400px;
+    height: 450px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 20px;
+}
+  
+.todos-login h4 {
+    font-weight: bold;
+    font-size: 36px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 20px;
+}
