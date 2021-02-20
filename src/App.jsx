@@ -33,7 +33,7 @@ function App() {
               <form>
                 <Input value={username} type='text' id='username' label='Username:' placeholder='type username' onChange={handleChangeUsername} />
                 <Input value={password} type='password' id='password' label='Password:' placeholder='type password' onChange={handleChangePassword} />
-                <Button title='Login' className={styles.login} onClick={handleClick} />
+                <Button title='Login' onClick={handleClick} />
               </form>
             </div>
           </div>
