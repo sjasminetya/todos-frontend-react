@@ -1,0 +1,68 @@
+.home {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.task {
+    width: 460px;
+    height: 400px;
+    background: #BAE4F1;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.task .text {
+    background: #5C7CAD;
+    padding: 10px;
+}
+
+.task .text h4 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: #FFFFFF;
+}
+
+label {
+    margin-top: 20px;
+}
+
+.task form {
+    display: flex;
+}
+
+.task button {
+    margin-top: 33px !important;
+}
+
+.task input {
+    margin-top: 0px;
+}
+
+.task .card-task,
+.task .card-task .group-btn {
+    display: flex;
+}
+
+.task .card-task span {
+    background: #FFFFFF;
+    height: fit-content;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.task .card-task .group-btn {
+    margin-left: 30px;
+}
+
+.task .card-task button {
+    margin-left: 5px !important;
+    margin-right: 0px !important;
+}

@@ -1,35 +1,38 @@
 import React, {useEffect} from 'react'
 import styles from './Home.module.css'
+import {useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {userLogin} from '../configs/redux/actions'
+import {getAllLabel} from '../configs/redux/actions'
+import Navbar from '../component/module/Navbar/Navbar'
 
 export default function Home() {
-
     const dispatch = useDispatch()
-    const userState = useSelector(state => state.user.userLogin)
-    console.log(userState)
+    const labelState = useSelector(state => state.label.listLabel)
+    const history = useHistory()
+
+    const goTask = (id) => {
+        history.push('/task/' + id)
+    }
+    
     useEffect(() => {
-        dispatch(userLogin())
+        dispatch(getAllLabel())
     }, [])
     
     return (
         <div>
-            <nav className={styles.nav}>
-                <div className="container">
-                    <h4 style={{fontSize: "34px"}}>Todos</h4>
+            <Navbar />
+            <main>
+                <div className={styles.label}>
+                    <div className={styles.text}>
+                        <h4>List of label</h4>
+                    </div>
+                    {labelState.map((item) => (
+                        <div className={styles['card-label']} key={item.id} onClick={() => goTask(item.id)}>
+                            <h4>{item.label}</h4>
+                        </div>
+                    ))}
                 </div>
-
-                <div className={styles.item}>
-                    <ul className={styles['navbar-nav']}>
-                        <li className={styles['nav-item']}>
-                            <h4>{userState.username}</h4>
-                        </li>
-                        <li className={styles['nav-item']}>
-                            <h4>logout</h4>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            </main>
         </div>
     )
 }
