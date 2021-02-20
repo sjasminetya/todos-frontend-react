@@ -4,8 +4,7 @@ import setAuthorization from '../utils/setAuthorization'
 
 export const login = (data) => (dispatch) => {
     axios.post(`${process.env.REACT_APP_BACKEND}/users/login`, data)
-    .then(async(res) => {
-        console.log(res)
+    .then((res) => {
         const get = res.data.result
         const token = res.data.result.token
         const id = res.data.result.id
@@ -14,21 +13,16 @@ export const login = (data) => (dispatch) => {
         setAuthorization(token)
         if (res.data.status === 'success') {
             dispatch({type: 'LOGIN', payload: {data, get}})
-            let timerInterval
-            await Swal.fire({
-                title: 'Hi, todos',
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: () => {
-                Swal.showLoading()
-                timerInterval = setInterval(() => {
-                }, 100)
-                },
-                willClose: () => {
-                clearInterval(timerInterval)
-                }
+            Swal.fire({
+                icon: 'success',
+                title: 'Login success',
+                showConfirmButton: false,
+                timer: 2000
             })
-        } else if (res.data.err.error === "Login failed, wrong password") {
+        }
+    })
+    .catch(err => {
+        if (err.response.err.error === "Login failed, wrong password") {
             Swal.fire({
                 icon: 'error',
                 title: 'Login failed, wrong password',
@@ -37,14 +31,15 @@ export const login = (data) => (dispatch) => {
             })
         }
     })
+}
+
+export const userLogin = () => (dispatch) => {
+    axios.get(`${process.env.REACT_APP_BACKEND}/users/${localStorage.id}`)
+    .then(res => {
+        console.log('user login', res)
+        dispatch({type: 'GET_USER_LOGIN', payload: res.data.result[0]})
+    })
     .catch(err => {
-        if (err.response.data.err.error === "Login failed, wrong password") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Login failed, wrong password',
-                showConfirmButton: false,
-                timer: 2000
-            })
-        }
+        console.log(err.response)
     })
 }
