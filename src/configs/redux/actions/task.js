@@ -28,3 +28,23 @@ export const addTask = (data) => (dispatch) => {
         console.log(err.response)
     })
 }
+
+export const deleteTask = (id) => (dispatch) => {
+    axios.delete(`${process.env.REACT_APP_BACKEND}/task/${id}`)
+    .then(res => {
+        console.log('delete task', res)
+        if (res.data.result.message === 'success delete task') {
+            dispatch({type: 'DELETE_TASK', payload: res.data.result})
+            dispatch(getTaskByIdUser())
+            Swal.fire({
+                icon: 'success',
+                title: 'Success delete task',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    })
+    .catch(err => {
+        console.log(err.response)
+    })
+}

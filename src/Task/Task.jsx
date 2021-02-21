@@ -5,7 +5,7 @@ import Input from '../component/base/Input/Input'
 import Button from '../component/base/Button/Button'
 import Navbar from '../component/module/Navbar/Navbar'
 import {useDispatch, useSelector} from 'react-redux'
-import {getLabelById, getTaskByIdUser, addTask} from '../configs/redux/actions'
+import {getLabelById, getTaskByIdUser, addTask, deleteTask} from '../configs/redux/actions'
 
 export default function Task(props) {
     const [task, setTask] = useState('')
@@ -32,6 +32,10 @@ export default function Task(props) {
         setTask('')
     }
 
+    const handleDeleteTask = (id) => {
+        dispatch(deleteTask(id))
+    }
+
     useEffect(() => {
         dispatch(getLabelById(id))
         dispatch(getTaskByIdUser())
@@ -55,7 +59,7 @@ export default function Task(props) {
                             <span>{item.task}</span>
                             <div className={styles['group-btn']}>
                                 <Button title='Edit' />
-                                <Button title='Delete' />
+                                <Button title='Delete' onClick={() => handleDeleteTask(item.id)} />
                             </div>
                         </div>
                     ))}

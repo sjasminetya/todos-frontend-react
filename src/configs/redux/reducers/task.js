@@ -8,7 +8,8 @@ const initialStateData = {
     addTask: [{
         labelId: '',
         task: 'task'
-    }]
+    }],
+    id: ''
 }
 
 const taskReducer = (state = initialStateData, action) => {
@@ -21,6 +22,11 @@ const taskReducer = (state = initialStateData, action) => {
         return {
             ...state,
             addTask: action.payload.data
+        }
+    } else if (action.type === 'DELETE_TASK') {
+        return {
+            ...state,
+            id: action.payload.id
         }
     } else {
         return state
