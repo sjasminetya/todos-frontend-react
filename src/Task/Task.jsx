@@ -5,12 +5,14 @@ import Input from '../component/base/Input/Input'
 import Button from '../component/base/Button/Button'
 import Navbar from '../component/module/Navbar/Navbar'
 import {useDispatch, useSelector} from 'react-redux'
-import {getLabelById} from '../configs/redux/actions'
+import {getLabelById, getTaskByIdUser, addTask} from '../configs/redux/actions'
 
 export default function Task(props) {
     const [task, setTask] = useState('')
     const dispatch = useDispatch()
     const labelState = useSelector(state => state.label.labelById)
+    const taskState = useSelector(state => state.task.taskById)
+    const {id} = props.match.params
     const history = useHistory()
     const goHome = () => {
         history.push('/home')
@@ -20,11 +22,19 @@ export default function Task(props) {
         setTask(task)
     }
 
+    const handleAddTask = (event) => {
+        event.preventDefault()
+        const data = {
+            labelId: id,
+            task
+        }
+        dispatch(addTask(data))
+        setTask('')
+    }
+
     useEffect(() => {
-        const {id} = props.match.params
-        console.log(props)
-        console.log(id)
         dispatch(getLabelById(id))
+        dispatch(getTaskByIdUser())
     }, [])
 
     return (
@@ -37,16 +47,18 @@ export default function Task(props) {
                 </div>
                 <form>
                     <Input value={task} className={styles['input-task']} type='text' id='task' placeholder='type task' onChange={handleChangeTask} />
-                    <Button title='Add' />
+                    <Button title='Add' onClick={handleAddTask} />
                 </form>
                 <div className={styles['list-task']}>
-                    <div className={styles['card-task']}>
-                        <span>Belajar Matematika</span>
-                        <div className={styles['group-btn']}>
-                            <Button title='Edit' />
-                            <Button title='Delete' />
+                    {taskState.map((item) => (
+                        <div className={styles['card-task']} key={item.id}>
+                            <span>{item.task}</span>
+                            <div className={styles['group-btn']}>
+                                <Button title='Edit' />
+                                <Button title='Delete' />
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
