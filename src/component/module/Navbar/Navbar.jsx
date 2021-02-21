@@ -1,11 +1,20 @@
 import React, {useEffect} from 'react'
 import styles from './Navbar.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {userLogin} from '../../../configs/redux/actions'
+import {useHistory} from 'react-router-dom'
+import {userLogin, logout} from '../../../configs/redux/actions'
 
 export default function Navbar() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const userState = useSelector(state => state.user.userLogin)
+
+    const goLogout = (event) => {
+        event.preventDefault()
+        dispatch(logout())
+        history.push('/login')
+    }
+
     useEffect(() => {
         dispatch(userLogin())
     }, [])
@@ -21,7 +30,7 @@ export default function Navbar() {
                         <li className={styles['nav-item']}>
                             <h4>{userState.username}</h4>
                         </li>
-                        <li className={styles['nav-item']}>
+                        <li className={styles['nav-item']} onClick={goLogout}>
                             <h4>logout</h4>
                         </li>
                     </ul>

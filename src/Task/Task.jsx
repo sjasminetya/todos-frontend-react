@@ -5,17 +5,21 @@ import Input from '../component/base/Input/Input'
 import Button from '../component/base/Button/Button'
 import Navbar from '../component/module/Navbar/Navbar'
 import {useDispatch, useSelector} from 'react-redux'
-import {getLabelById, getTaskByIdUser, addTask, deleteTask} from '../configs/redux/actions'
+import {getLabelById, getTaskByLabel, addTask, deleteTask} from '../configs/redux/actions'
 
 export default function Task(props) {
     const [task, setTask] = useState('')
     const dispatch = useDispatch()
     const labelState = useSelector(state => state.label.labelById)
-    const taskState = useSelector(state => state.task.taskById)
+    const taskState = useSelector(state => state.task.taskByLabel)
     const {id} = props.match.params
     const history = useHistory()
     const goHome = () => {
         history.push('/home')
+    }
+
+    const goEditTask = (id) => {
+        history.push('/task/edit/' + id)
     }
 
     const handleChangeTask = (task) => {
@@ -38,7 +42,7 @@ export default function Task(props) {
 
     useEffect(() => {
         dispatch(getLabelById(id))
-        dispatch(getTaskByIdUser())
+        dispatch(getTaskByLabel())
     }, [])
 
     return (
@@ -55,13 +59,17 @@ export default function Task(props) {
                 </form>
                 <div className={styles['list-task']}>
                     {taskState.map((item) => (
-                        <div className={styles['card-task']} key={item.id}>
-                            <span>{item.task}</span>
-                            <div className={styles['group-btn']}>
-                                <Button title='Edit' />
-                                <Button title='Delete' onClick={() => handleDeleteTask(item.id)} />
+                        item.userId === localStorage.id && item.labelId === id 
+                        ? (
+                            <div className={styles['card-task']} key={item.id}>
+                                <span>{item.task}</span>
+                                <div className={styles['group-btn']}>
+                                    <Button title='Edit' onClick={() => goEditTask(item.id)} />
+                                    <Button title='Delete' onClick={() => handleDeleteTask(item.id)} />
+                                </div>
                             </div>
-                        </div>
+                        )
+                        : null
                     ))}
                 </div>
             </div>

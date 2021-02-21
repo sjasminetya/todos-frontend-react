@@ -4,12 +4,12 @@ import setAuthorization from '../utils/setAuthorization'
 
 export const login = (data) => (dispatch) => {
     axios.post(`${process.env.REACT_APP_BACKEND}/users/login`, data)
-    .then((res) => {
+    .then(async(res) => {
         const get = res.data.result
         const token = res.data.result.token
         const id = res.data.result.id
-        localStorage.setItem('id', id)
-        localStorage.setItem('token', token)
+        await localStorage.setItem('id', id)
+        await localStorage.setItem('token', token)
         setAuthorization(token)
         if (res.data.status === 'success') {
             dispatch({type: 'LOGIN', payload: {data, get}})
@@ -42,4 +42,11 @@ export const userLogin = () => (dispatch) => {
     .catch(err => {
         console.log(err.response)
     })
+}
+
+export const logout = () => (dispatch) => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('id')
+    setAuthorization(false)
+    dispatch(userLogin({}))
 }
