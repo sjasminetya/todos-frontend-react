@@ -11,7 +11,7 @@ password: shaula
 ## Getting started
 Clone the repository
 ```
-git clone https://github.com/sjasminetya/todos-frontend.git
+git clone https://github.com/sjasminetya/todos-frontend-react.git
 ```
 Install all dependencies
 ```
