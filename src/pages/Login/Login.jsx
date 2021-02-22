@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import styles from './Login.module.css';
-import Input from '../component/base/Input/Input'
-import Button from '../component/base/Button/Button'
+import Input from '../../component/base/Input/Input'
+import Button from '../../component/base/Button/Button'
 import {useDispatch} from 'react-redux'
-import {login} from '../configs/redux/actions'
+import {login} from '../../configs/redux/actions'
 import {useHistory} from 'react-router-dom'
 
 function Login() {
