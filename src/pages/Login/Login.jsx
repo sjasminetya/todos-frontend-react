@@ -4,7 +4,7 @@ import Input from '../../component/base/Input/Input'
 import Button from '../../component/base/Button/Button'
 import {useDispatch} from 'react-redux'
 import {login} from '../../configs/redux/actions'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -41,6 +41,7 @@ function Login() {
                 <Input value={username} type='text' id='username' label='Username:' placeholder='type username' onChange={handleChangeUsername} />
                 <Input value={password} type='password' id='password' label='Password:' placeholder='type password' onChange={handleChangePassword} />
                 <Button title='Login' onClick={handleClick} />
+                <h6>Don't have account? <Link to="/register">Register</Link></h6>
               </form>
             </div>
           </div>

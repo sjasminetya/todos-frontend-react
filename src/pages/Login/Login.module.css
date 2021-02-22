@@ -12,5 +12,14 @@
     font-size: 36px;
     color: #FFFFFF;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 45px;
+}
+
+.todos-login form h6 {
+    padding: 0px 0 0 30px;
+    color: #FFFFFF;
+}
+
+.todos-login form h6 a {
+    color: #FFFFFF;
 }
