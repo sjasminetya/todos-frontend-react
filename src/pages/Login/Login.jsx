@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux'
 import {login} from '../../configs/redux/actions'
 import {useHistory, Link} from 'react-router-dom'
 
-function Login() {
+export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
@@ -50,5 +50,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
