@@ -1,0 +1,89 @@
+section {
+    display: flex;
+}
+
+section .label {
+    width: max-content;
+    height: 400px;
+    background: #5C7CAD;
+    margin: 5% auto;
+}
+
+section .label .text {
+    background: #BAE4F1;
+}
+
+section .label .text h4 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+
+section .label .card-label {
+    justify-content: space-between;
+}
+
+section .label .card-label span {
+    background: #FFFFFF;
+    height: fit-content;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+section .label .card-label,
+section .label.card-label .group-btn {
+    display: flex;
+}
+
+section .label .card-label {
+    justify-content: space-between;
+}
+
+section .label .card-label span {
+    background: #FFFFFF;
+    height: fit-content;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+section .label .card-label .group-btn {
+    margin-left: 30px;
+    margin-right: 20px;
+    display: flex;
+}
+
+section .label .card-label button {
+    margin-left: 5px !important;
+    margin-right: 0px !important;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+label {
+    margin-top: 20px;
+}
+
+section .label form {
+    display: flex;
+}
+
+section .label button {
+    margin-top: 33px !important;
+}
+
+section .label input {
+    margin-top: 0px;
+}
