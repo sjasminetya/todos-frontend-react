@@ -1,32 +1,42 @@
 import isEmpty from 'lodash/isEmpty'
 
 const initialStateData = {
-    login: {
+    auth: {
         username: '',
         password: ''
     },
     userLogin: {
-        username: '',
-        token: '',
-        id: '',
-        role: '',
-        name: ''
+        username: 'username',
+        id: 'id',
+        role: 'role',
+        name: 'name'
     },
     isAuthenticated: false
 }
 
 const userReducer = (state = initialStateData, action) => {
     if (action.type === 'LOGIN') {
-        console.log('login', action.payload.data)
         return {
             ...state,
-            login: action.payload.data
+            auth: action.payload.data
         }
     } else if (action.type === 'GET_USER_LOGIN') {
         return {
             ...state,
             isAuthenticated: !isEmpty(action.payload),
             userLogin: action.payload
+        }
+    } else if (action.type === 'REGISTER') {
+        console.log('register', action.payload.data)
+        return {
+            ...state,
+            auth: action.payload.data
+        }
+    } else if (action.type === 'LOGOUT') {
+        return {
+            ...state,
+            userLogin: {},
+            isAuthenticated: false
         }
     } else {
         return state

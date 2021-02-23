@@ -1,8 +1,8 @@
-main {
+section {
     display: flex;
 }
 
-main .label {
+section .label {
     width: 300px;
     height: 214px;
     background: #5C7CAD;
@@ -10,25 +10,25 @@ main .label {
     margin-top: 10%;
 }
 
-main .label .text {
+section .label .text {
     background: #BAE4F1;
 }
 
-main .label .text h4 {
+section .label .text h4 {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
     padding: 5px;
 }
 
-main .label .card-label {
+section .label .card-label {
     background: #FFFFFF;
     width: 200px;
     margin: 20px;
     cursor: pointer;
 }
 
-main .label .card-label h4 {
+section .label .card-label h4 {
     font-size: 18px;
     padding: 10px;
 }

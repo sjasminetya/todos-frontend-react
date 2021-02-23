@@ -4,25 +4,23 @@ import setAuthorization from '../utils/setAuthorization'
 
 export const login = (data) => (dispatch) => {
     axios.post(`${process.env.REACT_APP_BACKEND}/users/login`, data)
-    .then(async(res) => {
-        const get = res.data.result
+    .then((res) => {
         const token = res.data.result.token
         const id = res.data.result.id
-        await localStorage.setItem('id', id)
-        await localStorage.setItem('token', token)
+        localStorage.setItem('id', id)
+        localStorage.setItem('token', token)
         setAuthorization(token)
-        if (res.data.status === 'success') {
-            dispatch({type: 'LOGIN', payload: {data, get}})
+        dispatch({type: 'LOGIN', payload: {data}})
             Swal.fire({
                 icon: 'success',
                 title: 'Login success',
                 showConfirmButton: false,
                 timer: 2000
             })
-        }
     })
     .catch(err => {
-        if (err.response.err.error === "Login failed, wrong password") {
+        console.log(err.response)
+        if (err.response.data.err.error === "Login failed, wrong password") {
             Swal.fire({
                 icon: 'error',
                 title: 'Login failed, wrong password',
@@ -35,7 +33,7 @@ export const login = (data) => (dispatch) => {
 
 export const userLogin = () => (dispatch) => {
     axios.get(`${process.env.REACT_APP_BACKEND}/users/${localStorage.id}`)
-    .then(res => {
+    .then((res) => {
         console.log('user login', res)
         dispatch({type: 'GET_USER_LOGIN', payload: res.data.result[0]})
     })
@@ -48,5 +46,23 @@ export const logout = () => (dispatch) => {
     localStorage.removeItem('token')
     localStorage.removeItem('id')
     setAuthorization(false)
-    dispatch(userLogin({}))
+    dispatch({type: 'LOGOUT'})
+}
+
+export const register = (data) => (dispatch) => {
+    axios.post(`${process.env.REACT_APP_BACKEND}/users/register`, data)
+    .then(res => {
+        if (res.data.result.message === "Success register") {
+            dispatch({type: 'REGISTER', payload: {data}})
+            Swal.fire({
+                icon: 'success',
+                title: 'Register success',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    })
+    .catch(err => {
+        console.log(err.response)
+    })
 }

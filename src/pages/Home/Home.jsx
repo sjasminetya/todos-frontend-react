@@ -21,7 +21,7 @@ export default function Home() {
     return (
         <div>
             <Navbar />
-            <main>
+            <section>
                 <div className={styles.label}>
                     <div className={styles.text}>
                         <h4>List of label</h4>
@@ -32,7 +32,7 @@ export default function Home() {
                         </div>
                     ))}
                 </div>
-            </main>
+            </section>
         </div>
     )
 }

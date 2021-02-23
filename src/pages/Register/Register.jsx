@@ -3,7 +3,7 @@ import styles from './Register.module.css';
 import Input from '../../component/base/Input/Input'
 import Button from '../../component/base/Button/Button'
 import {useDispatch} from 'react-redux'
-import {login} from '../../configs/redux/actions'
+import {register} from '../../configs/redux/actions'
 import {useHistory, Link} from 'react-router-dom'
 
 export default function Register() {
@@ -32,8 +32,8 @@ export default function Register() {
             username,
             password
         }
-        dispatch(login(data))
-        history.push('/home')
+        dispatch(register(data))
+        history.push('/login')
     }
     return (
         <div>
