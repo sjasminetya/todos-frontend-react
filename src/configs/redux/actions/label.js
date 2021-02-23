@@ -45,3 +45,22 @@ export const deleteLabel = (id) => (dispatch) => {
             })
     })
 }
+
+export const updateLabel = (id, data) => (dispatch) => {
+    axios.patch(`${process.env.REACT_APP_BACKEND}/label/${id}`, data)
+    .then(res => {
+        const message = res.data.result.message
+        if (message === 'Success update label') {
+            dispatch({type: 'UPDATE_LABEL', payload: {data}})
+            Swal.fire({
+                icon: 'success',
+                title: 'Success update label',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    })
+    .catch(err => {
+        console.log(err.response)
+    })
+}

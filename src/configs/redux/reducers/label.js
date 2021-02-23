@@ -36,6 +36,11 @@ const labelReducer = (state = initialStateData, action) => {
             ...state,
             id: action.payload.id
         }
+    } else if (action.type === 'UPDATE_LABEL') {
+        return {
+            ...state,
+            label: action.payload.data
+        }
     } else {
         return state
     }

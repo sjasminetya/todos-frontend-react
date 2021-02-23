@@ -16,6 +16,10 @@ export default function Admin() {
         history.push('/task/' + id)
     }
 
+    const goEditLabel = (id) => {
+        history.push('/label/edit/' + id)
+    }
+
     const handleChangeLabel = (label) => {
         setLabel(label)
     }
@@ -55,7 +59,7 @@ export default function Admin() {
                                 <span>{item.label}</span>
                             </div>
                             <div className={styles['group-btn']}>
-                                <Button title='Edit' />
+                                <Button title='Edit' onClick={() => goEditLabel(item.id)} />
                                 <Button title='Delete' onClick={() => handleDeleteLabel(item.id)} />
                             </div>
                         </div>

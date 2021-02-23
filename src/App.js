@@ -7,6 +7,7 @@ import Register from './pages/Register/Register'
 import Home from './pages/Home/Home'
 import Task from './pages/Task/Task'
 import EditTask from './pages/Task/EditTask/EditTask'
+import EditLabel from './pages/Admin/EditLabel/EditLabel'
 import setAuthorization from './configs/redux/utils/setAuthorization'
 
 if (localStorage.token) {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/home" component={Home}></Route>
           <Route path="/task/:id" exact component={Task}></Route>
           <Route path="/task/edit/:id" component={EditTask}></Route>
+          <Route path="/label/edit/:id" component={EditLabel}></Route>
         </Router>
       </Provider>
     </div>
