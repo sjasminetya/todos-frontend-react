@@ -22,7 +22,7 @@ export default function Navbar() {
         <div>
             <nav className={styles.nav}>
                 <div className="container">
-                    <h4 style={{fontSize: "34px"}}>Todos</h4>
+                    <h4 style={{fontSize: "34px"}}>Todos App</h4>
                 </div>
 
                 <div className={styles.item}>
