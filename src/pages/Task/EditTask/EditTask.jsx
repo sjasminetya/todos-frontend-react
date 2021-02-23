@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
-import styles from './Task.module.css'
-import Input from '../../component/base/Input/Input'
-import Button from '../../component/base/Button/Button'
-import Navbar from '../../component/module/Navbar/Navbar'
+import styles from './EditTask.module.css'
+import Input from '../../../component/base/Input/Input'
+import Button from '../../../component/base/Button/Button'
+import Navbar from '../../../component/module/Navbar/Navbar'
 import {useDispatch, useSelector} from 'react-redux'
-import {getTaskById, UpdateTask} from '../../configs/redux/actions'
+import {getTaskById, UpdateTask} from '../../../configs/redux/actions'
 
 export default function EditTask(props) {
     const [task, setTask] = useState('')
