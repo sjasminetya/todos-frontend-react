@@ -7,6 +7,25 @@ section .label {
     height: 400px;
     background: #5C7CAD;
     margin: 5% auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.label::-webkit-scrollbar {
+    width: 12px;
+}
+
+.label::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.label::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: darkgray;
+}
+
+.label::-webkit-scrollbar-thumb:window-inactive {
+    background: #E8E8E8;
 }
 
 section .label .text {
@@ -20,8 +39,12 @@ section .label .text h4 {
     padding: 5px;
 }
 
-section .label .card-label {
+section .label .item-label {
     justify-content: space-between;
+}
+
+section .label .card-label {
+    margin-top: 40px;
 }
 
 section .label .card-label span {
@@ -29,36 +52,23 @@ section .label .card-label span {
     height: fit-content;
     padding: 20px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 33px !important;
     border-radius: 10px;
     font-weight: bold;
 }
 
-section .label .card-label,
-section .label.card-label .group-btn {
+section .label .item-label,
+section .label .item-label .group-btn {
     display: flex;
 }
 
-section .label .card-label {
-    justify-content: space-between;
-}
-
-section .label .card-label span {
-    background: #FFFFFF;
-    height: fit-content;
-    padding: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-section .label .card-label .group-btn {
+section .label .item-label .group-btn {
     margin-left: 30px;
     margin-right: 20px;
     display: flex;
 }
 
-section .label .card-label button {
+section .label .item-label button {
     margin-left: 5px !important;
     margin-right: 0px !important;
 }

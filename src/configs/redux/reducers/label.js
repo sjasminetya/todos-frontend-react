@@ -5,6 +5,7 @@ const initialStateData = {
         desc: 'label'
     }],
     id: '',
+    label: '',
     labelById: [{
         id: 'id',
         label: 'label',
@@ -23,6 +24,16 @@ const labelReducer = (state = initialStateData, action) => {
         return {
             ...state,
             labelById: action.payload,
+            id: action.payload.id
+        }
+    } else if (action.type === 'ADD_LABEL') {
+        return {
+            ...state,
+            label: action.payload.data
+        }
+    } else if (action.type === 'DELETE_LABEL') {
+        return {
+            ...state,
             id: action.payload.id
         }
     } else {
