@@ -1,9 +1,5 @@
 # Todos App
 
-## Demo
-username: sjasminetya
-password: shaula
-
 ## Requirements
 * **[`React`](https://reactjs.org)**
 * **[`Backend todos`](https://github.com/sjasminetya/todos-backend)**
