@@ -1,9 +1,5 @@
 const initialStateData = {
-    listLabel: [{
-        id: 'id',
-        label: 'label',
-        desc: 'label'
-    }],
+    listLabel: false,
     id: '',
     label: '',
     labelById: [{

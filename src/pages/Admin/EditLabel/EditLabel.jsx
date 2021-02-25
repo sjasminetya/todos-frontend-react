@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import styles from './EditLabel.module.css'
 import Input from '../../../component/base/Input/Input'
 import Button from '../../../component/base/Button/Button'
-import Navbar from '../../../component/module/Navbar/Navbar'
+import Navbar from '../../../component/module/Navbar/NavbarComponent'
 import {useDispatch, useSelector} from 'react-redux'
 import {getLabelById, updateLabel} from '../../../configs/redux/actions'
 
