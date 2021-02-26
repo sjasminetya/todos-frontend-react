@@ -1,16 +1,6 @@
 const initialStateData = {
-    taskById: [{
-        id: 'id',
-        labelId: 'label',
-        task: 'task',
-        completed: 2
-    }],
-    taskByLabel: [{
-        id: 'id',
-        labelId: 'label',
-        task: 'task',
-        completed: 2
-    }],
+    taskById: false,
+    taskByLabel: false,
     addTask: [{
         labelId: '',
         task: 'task'

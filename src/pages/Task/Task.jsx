@@ -6,7 +6,7 @@ import Navbar from '../../component/module/NavbarComponent'
 import {BackComponent} from '../../component/module/BackComponent'
 import {useDispatch, useSelector} from 'react-redux'
 import {getLabelById, getTaskByLabel, addTask, deleteTask} from '../../configs/redux/actions'
-import { Container, Toast, ToastHeader, ToastBody, Button } from 'reactstrap'
+import { Container, Toast, ToastHeader, ToastBody, Button, Spinner } from 'reactstrap'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faEdit,
@@ -60,30 +60,36 @@ export default function Task(props) {
                         <FontAwesomeIcon icon={faPlus} /> Add New Task
                     </Button>
                 </div>
-                <div className="p-3 bg-dark my-2 mt-3 rounded" style={{width: 'max-content', margin: 'auto'}}>
-                <Toast>
-                    <ToastHeader icon="danger">
-                        {labelState.label}
-                    </ToastHeader>
-                </Toast>
-                {taskState.map((item) => (
-                    item.userId === localStorage.id && item.labelId === id ? (
-                        <div style={{display: 'flex'}}>
-                            <Toast key={item.id} style={{cursor: 'pointer'}}>
-                                <ToastBody style={{fontWeight: 'bold'}}>
-                                    {item.task}
-                                </ToastBody>
-                            </Toast>
-                            <Button color="info" className="mr-2 mt-2" onClick={() => goEditTask(item.id)}>
-                                <FontAwesomeIcon icon={faEdit} /> Edit
-                            </Button>
-                            <Button color="info" style={{width: '120px'}} className="mr-2 mt-2" onClick={() => handleDeleteTask(item.id)}>
-                                <FontAwesomeIcon icon={faTrash} /> Delete
-                            </Button>
-                        </div>
-                    ) : null
-                ))}
-                </div>
+                {taskState ? (
+                    <div className="p-3 bg-dark my-2 mt-3 rounded" style={{width: '520px', margin: 'auto'}}>
+                        <Toast>
+                            <ToastHeader icon="danger">
+                                {labelState.label}
+                            </ToastHeader>
+                        </Toast>
+                        {taskState.map((item) => (
+                            item.userId === localStorage.id && item.labelId === id ? (
+                                <div style={{display: 'flex'}}>
+                                    <Toast key={item.id} style={{cursor: 'pointer'}}>
+                                        <ToastBody style={{fontWeight: 'bold'}}>
+                                            {item.task}
+                                        </ToastBody>
+                                    </Toast>
+                                    <Button color="info" className="mr-2 mt-2" onClick={() => goEditTask(item.id)}>
+                                        <FontAwesomeIcon icon={faEdit} /> Edit
+                                    </Button>
+                                    <Button color="info" style={{width: '120px'}} className="mr-2 mt-2" onClick={() => handleDeleteTask(item.id)}>
+                                        <FontAwesomeIcon icon={faTrash} /> Delete
+                                    </Button>
+                                </div>
+                            ) : null
+                        ))}
+                    </div>
+                ): (
+                    <div className="text-center p-3 bg-dark my-2 rounded" style={{width: '520px', margin: 'auto'}}>
+                        <Spinner color="primary"/>
+                    </div>
+                )}
             </Container>
         </div>
     )

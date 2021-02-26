@@ -6,7 +6,7 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Home from './pages/Home'
 import Task from './pages/Task/Task'
-import EditTask from './pages/Task/EditTask/EditTask'
+import EditTask from './pages/Task/EditTask'
 import EditLabel from './pages/Admin/EditLabel/EditLabel'
 import setAuthorization from './configs/redux/utils/setAuthorization'
 
