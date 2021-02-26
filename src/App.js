@@ -22,8 +22,8 @@ function App() {
       <Provider store={store}>
         <Router>
           <Route path="/" exact component={Main}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
+          <Route path="/login" exact component={Login}></Route>
+          <Route path="/register" exact component={Register}></Route>
           <Route path="/home" component={Home}></Route>
           <Route path="/task/:id" exact component={Task}></Route>
           <Route path="/task/edit/:id" component={EditTask}></Route>

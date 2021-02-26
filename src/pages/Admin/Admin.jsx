@@ -57,7 +57,7 @@ export default function Admin() {
             </div>
             <Container>
                 {labelState ? (
-                    <div className="p-3 bg-dark my-2 mt-5 rounded" style={{ width: 'max-content', margin: 'auto' }}>
+                    <div className="p-3 bg-dark my-2 mt-3 rounded" style={{ width: 'max-content', margin: 'auto' }}>
                         <h3 style={{ color: '#FFFFFF' }} className="text-center">List Label</h3>
                         {labelState.map((item) => (
                             <div style={{display: 'flex'}}>
@@ -82,10 +82,10 @@ export default function Admin() {
                                             </div>
                                         )}
                                 </Toast>
-                                <Button color="info" className="mr-2 mt-4" onClick={() => goEditLabel(item.id)}>
+                                <Button color="info" className="mt-4" onClick={() => goEditLabel(item.id)}>
                                     <FontAwesomeIcon icon={faEdit} /> Edit
                                 </Button>
-                                <Button color="info" style={{width: '120px'}} className="mr-2 mt-4" onClick={() => handleDeleteLabel(item.id)}>
+                                <Button color="info" style={{width: '120px'}} className="mt-4" onClick={() => handleDeleteLabel(item.id)}>
                                     <FontAwesomeIcon icon={faTrash} /> Delete
                                 </Button>
                             </div>

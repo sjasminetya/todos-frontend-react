@@ -5,7 +5,6 @@ import Navbar from '../../component/module/NavbarComponent'
 import {useDispatch, useSelector} from 'react-redux'
 import {getTaskById, UpdateTask} from '../../configs/redux/actions'
 import { Container, Button } from 'reactstrap'
-import {BackComponent} from '../../component/module/BackComponent'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faEdit,
