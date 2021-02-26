@@ -16,7 +16,7 @@ export default function Main() {
 
     return (
         <div>
-            <main className="text-center">
+            <main className="text-center bg-dark">
                 <h1>Welcome to Todos App</h1>
                 <div className={styles['btn-group']}>
                     <Button title="Login" onClick={goLogin} className={styles.btn} />
