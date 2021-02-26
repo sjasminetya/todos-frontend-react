@@ -12,6 +12,11 @@ import {
     NavLink,
     Container
 } from 'reactstrap'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faSignOutAlt,
+    faUser
+} from "@fortawesome/free-solid-svg-icons"
 
 export default function NavbarComponent() {
     const dispatch = useDispatch()
@@ -39,10 +44,14 @@ export default function NavbarComponent() {
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink style={{cursor: 'pointer'}}>{userState.username}</NavLink>
+                                <NavLink style={{cursor: 'pointer'}}>
+                                <FontAwesomeIcon icon={faUser} /> {userState.username}
+                                </NavLink>
                             </NavItem>
                             <NavItem onClick={goLogout}>
-                                <NavLink style={{cursor: 'pointer'}}>Logout</NavLink>
+                                <NavLink style={{cursor: 'pointer'}}>
+                                    <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+                                </NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
