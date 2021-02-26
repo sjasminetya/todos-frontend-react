@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import styles from './EditTask.module.css'
 import Input from '../../../component/base/Input/Input'
 import Button from '../../../component/base/Button/Button'
-import Navbar from '../../../component/module/Navbar/NavbarComponent'
+import Navbar from '../../../component/module/NavbarComponent'
 import {useDispatch, useSelector} from 'react-redux'
 import {getTaskById, UpdateTask} from '../../../configs/redux/actions'
 

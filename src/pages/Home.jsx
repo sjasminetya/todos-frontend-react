@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllLabel } from "../../configs/redux/actions";
-import Navbar from "../../component/module/Navbar/NavbarComponent";
-import Admin from "../Admin/Admin";
+import { getAllLabel } from "../configs/redux/actions";
+import Navbar from "../component/module/NavbarComponent";
+import Admin from "./Admin/Admin";
 import { Toast, ToastBody, ToastHeader, Container, Spinner } from "reactstrap";
 
 export default function Home() {
